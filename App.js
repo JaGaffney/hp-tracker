@@ -29,7 +29,11 @@ const App = () => {
     return (
         <View>
             {loadGame ? (
-                <Player totalPlayers={playerTotal} defaultHP={defaultHP} />
+                <Player
+                    totalPlayers={playerTotal}
+                    defaultHP={defaultHP}
+                    loadGame={() => setLoadGame(!loadGame)}
+                />
             ) : (
                 <View style={styles.container}>
                     <View>

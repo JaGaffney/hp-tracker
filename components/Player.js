@@ -10,6 +10,7 @@ import {
 
 import PlayerButtons from "./PlayerButtons";
 import Turn from "./Turn";
+import Navigation from "./Navigation";
 
 const Player = props => {
     const [playerHP, setPlayerHP] = useState({
@@ -78,6 +79,7 @@ const Player = props => {
 
     return (
         <View>
+            {/* <Navigation back={props.loadGame} /> */}
             <View style={styles.container}>
                 {props.totalPlayers.map((item, index) => onPlayerTotal(index + 1))}
             </View>
