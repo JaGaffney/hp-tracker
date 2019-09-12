@@ -9,6 +9,7 @@ import {
 } from "../styles/styles";
 
 import PlayerButtons from "./PlayerButtons";
+import Turn from "./Turn";
 
 const Player = props => {
     const [playerHP, setPlayerHP] = useState({
@@ -29,7 +30,6 @@ const Player = props => {
     };
 
     const onPlayerTotal = player => {
-        console.log(props.totalPlayers.length);
         let playerColor = SECONDARY_COLOR;
         let rotation = "0deg";
         switch (player) {
@@ -77,13 +77,24 @@ const Player = props => {
     };
 
     return (
-        <View style={styles.container}>
-            {props.totalPlayers.map((item, index) => onPlayerTotal(index + 1))}
+        <View>
+            <View style={styles.container}>
+                {props.totalPlayers.map((item, index) => onPlayerTotal(index + 1))}
+            </View>
+            <View style={styles.turnContainer}>
+                <Turn />
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
+    turnContainer: {
+        position: "absolute",
+        top: "45%",
+        left: 0,
+        width: "100%"
+    },
     container: {
         height: "100%",
         width: "100%",

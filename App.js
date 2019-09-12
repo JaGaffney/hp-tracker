@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button, TextInput } from "react-native";
 import {
     PRIMARY_COLOR,
     SECONDARY_COLOR,
+    ALT_PRIMARY_COLOR,
     ALT_SECONDARY_COLOR,
     ALT_TERTIARY_COLOR
 } from "./styles/styles";
@@ -30,17 +31,19 @@ const App = () => {
             {loadGame ? (
                 <Player totalPlayers={playerTotal} defaultHP={defaultHP} />
             ) : (
-                <View>
+                <View style={styles.container}>
                     <View>
                         <Text>How many players?</Text>
                         <Button title="2" onPress={() => setPlayerTotal(["1", "2"])} />
                         <Button
                             title="3"
                             onPress={() => setPlayerTotal(["1", "2", "3"])}
+                            disabled={true}
                         />
                         <Button
                             title="4"
                             onPress={() => setPlayerTotal(["1", "2", "3", "4"])}
+                            disabled={true}
                         />
                     </View>
 
@@ -54,5 +57,17 @@ const App = () => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        height: "100%",
+        width: "100%",
+        paddingTop: 20,
+        paddingBottom: 5,
+        backgroundColor: ALT_PRIMARY_COLOR,
+        fontSize: 45,
+        fontWeight: "bold"
+    }
+});
 
 export default App;
